@@ -6,7 +6,11 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy = { version = "0.12.1", features = ["dynamic_linking"] }
+bevy = { version = "0.13.2", features = ["dynamic_linking"] }
+bevy-inspector-egui = "0.24.0"
+bevy_rapier2d = { version = "*", features = ["simd-stable", "debug-render-2d"] }
+log = "0.4.20"
+rand = "0.8.5"
 # Enable a small amount of optimization in debug mode
 [profile.dev]
 opt-level = 1
