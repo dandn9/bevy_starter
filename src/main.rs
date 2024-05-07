@@ -5,6 +5,7 @@ mod systems;
 
 use crate::resources::MouseMovementSequence;
 use crate::systems::detect_drag_ingredients;
+use bevy::input::common_conditions::input_toggle_active;
 use bevy::input::mouse::MouseButtonInput;
 use bevy::math::vec3;
 use bevy::prelude::*;
@@ -26,10 +27,13 @@ fn main() {
             TimerMode::Repeating,
         )))
         .init_resource::<resources::MouseMovementSequence>()
+        .init_resource::<ingredients_list::IngredientsList>()
         .add_plugins(DefaultPlugins)
         .add_plugins(RapierPhysicsPlugin::<NoUserData>::pixels_per_meter(10.0))
         .add_plugins(RapierDebugRenderPlugin::default())
-        .add_plugins(WorldInspectorPlugin::default())
+        .add_plugins(
+            WorldInspectorPlugin::default().run_if(input_toggle_active(true, KeyCode::KeyS)),
+        )
         .add_systems(
             Startup,
             (

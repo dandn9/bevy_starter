@@ -2,7 +2,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Build",
+			"label": "Build & run",
 			"command": "cargo run",
 			"type": "shell",
 			"args": [],
@@ -10,7 +10,10 @@
 			"presentation": {
 				"reveal": "always"
 			},
-			"group": "build"
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
 		}
 	]
 }

@@ -154,7 +154,7 @@ pub fn spawn_ingredients(
     commands.spawn((
         RigidBody::Dynamic,
         // GravityScale(1.0 / size),
-        ColliderMassProperties::Mass(size * 4.0 + 0.2),
+        ColliderMassProperties::Mass(size * 10.0 + 2.0),
         Collider::ball(20.0 + size * 40.0),
         CollisionGroups::new(Group::GROUP_2, Group::ALL),
         Restitution::coefficient(f32::max(0.8 - size, 0.0)),
